@@ -103,72 +103,34 @@
         <h2 class="section-title">Featured Projects</h2>
         <p class="section-subtitle">These are some of my favorite projects that showcase my skills and passion for web development.</p>
         
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="wanderlust.JPG">
+        <!-- Project 1 -->
+        <div class="project-container">
+            <div class="project-carousel">
+                <div class="carousel-images">
+                    <img src="wanderlust.JPG" alt="Project 1">
+                    <img src="placeholder.jpg" alt="Project 1">
+                    <img src="placeholder2.jpg" alt="Project 1">
                 </div>
-                <div class="project-info">
-                    <h3 class="project-title">House renting platform</h3>
-                    <p class="project-description">A full-featured house listing and renting platform with user authentication, catalog, and maps integration.
-                        (The server might take a minute to start on first visit)</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">EJS</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">MongoDB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://wanderlust-9s6r.onrender.com/" title="View Live"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="https://github.com/huzaifajabbar/listing_website" title="View Code"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
+                <button class="carousel-arrow left"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-arrow right"><i class="fas fa-chevron-right"></i></button>
             </div>
-            
-            <!-- Project 2 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="/api/placeholder/400/220" alt="Project 2">
+            <div class="project-details">
+                <h3 class="project-title">House renting platform</h3>
+                <p class="project-description">A full-featured house listing and renting platform with user authentication, catalog, and maps integration.</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">EJS</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">Express</span>
+                    <span class="tech-badge">MongoDB</span>
                 </div>
-                <div class="project-info">
-                    <h3 class="project-title">Task Management App</h3>
-                    <p class="project-description">A collaborative task management application with real-time updates and user permission system.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">React</span>
-                        <span class="tech-badge">Node.js</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">MySQL</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" title="View Live"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="#" title="View Code"><i class="fab fa-github"></i> Code</a>
-                    </div>
-                </div>
-
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="/api/placeholder/400/220" alt="Project 3">
-                </div>
-                <div class="project-info">
-                    <h3 class="project-title">Blog Platform</h3>
-                    <p class="project-description">A content management system for bloggers with markdown support and image optimization.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">JavaScript</span>
-                        <span class="tech-badge">Express</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">EJS</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" title="View Live"><i class="fas fa-external-link-alt"></i> Live</a>
-                        <a href="#" title="View Code"><i class="fab fa-github"></i> Code</a>
-                    </div>
+                <div class="project-links">
+                    <a href="https://wanderlust-9s6r.onrender.com/" title="View Live"><i class="fas fa-external-link-alt"></i> Live</a>
+                    <a href="https://github.com/huzaifajabbar/listing_website" title="View Code"><i class="fab fa-github"></i> Code</a>
                 </div>
             </div>
         </div>
+    
+        <!-- Repeat for other projects -->
     </section>
 
     <section id="contact" class="contact">
@@ -253,101 +215,6 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <script>
-        // Mobile menu toggle
-        const menuBtn = document.querySelector('.menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Scroll to section
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                navLinks.classList.remove('active');
-                
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                if (targetSection) {
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Scroll up button
-        const scrollUpBtn = document.querySelector('.scroll-up');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollUpBtn.classList.add('active');
-            } else {
-                scrollUpBtn.classList.remove('active');
-            }
-        });
-        
-        scrollUpBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Section animations on scroll
-        const sections = document.querySelectorAll('section');
-        
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // Skill card animations
-        const skillCards = document.querySelectorAll('.skill-card');
-        
-        skillCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-        });
-
-        // Replace placeholder images with actual skill icons
-        // This would be implemented when deployed with actual icon URLs
-        document.querySelectorAll('.skill-card img').forEach(img => {
-            if (img.dataset.src) {
-                const dataSrc = img.dataset.src;
-                // In a real implementation, you would uncomment the line below
-                // img.src = dataSrc;
-            }
-        });
-
-        // Form submission handling
-        const contactForm = document.querySelector('.contact-form form');
-        
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Form validation and submission logic would go here
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
-            });
-        }
-    </script>
+<script src="script.js"></script>
 </body>
 </html>

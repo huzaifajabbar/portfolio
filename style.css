@@ -303,6 +303,115 @@ nav {
     background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05), transparent 70%);
 }
 
+/* Projects Section */
+.project-container {
+    display: flex;
+    gap: 2rem;
+    margin: 4rem 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.project-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-carousel {
+    flex: 1;
+    position: relative;
+    max-width: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    height: 400px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-images::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-images img {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+    background: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.left { left: 1rem; }
+.carousel-arrow.right { right: 1rem; }
+
+.project-details {
+    flex: 1;
+    padding: 1rem;
+    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+    }
+
+    .skill-card img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .skill-card {
+        height: 75px;
+        width: 75px;
+    }
+
+    .skill-card h3 {
+        font-size: 0.5rem;
+    }
+    
+    .carousel-images {
+        height: 300px;
+    }
+    
+    .project-details {
+        order: -1;
+    }
+}
+
+/* Add animation delays */
+.project-container:nth-child(1) { transition-delay: 0.2s; }
+.project-container:nth-child(2) { transition-delay: 0.4s; }
+.project-container:nth-child(3) { transition-delay: 0.6s; }
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
